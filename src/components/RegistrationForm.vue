@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="container">
       <div class="flex items-column mb-4 ">
         <div class="timeline-container">
           <div class="spacer"></div>
@@ -287,11 +287,20 @@ export default {
 
 <style scoped>
 
+#container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
 .timeline-container {
   display: flex;
   align-items: center;
   margin-top: 20px;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .spacer {
@@ -326,11 +335,12 @@ export default {
   z-index: 2;
 }
 .form {
-  padding: 10%;
-  padding-top: 5%;
-  width:25dvw;
+  padding: 5%;
+  padding-top: 2%;
+  width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   background-color: rgb(255, 255, 255);
   border-radius: 5%;
@@ -401,5 +411,27 @@ export default {
 .btn-close{
   color: #ffffff;
 }
-/* Agrega aquí los estilos de Tailwind CSS que necesites */
+
+.select input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+    #container {
+      flex-direction: column;
+    }
+
+    .form {
+      width: 100%;
+    }
+
+    .select .label {
+      width: 100%;
+    }
+
+    .button {
+      width: 100%;
+    }
+  }
 </style>
